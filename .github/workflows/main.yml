@@ -40,7 +40,7 @@ jobs:
 
     - name: Run test suite
       env:
-        DATABASE_URL: mysql://root:local@127.0.0.1:3306/test
+        DATABASE_URL: mysql://root:local@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/test
       run: |
         export SYMFONY_ENV=test
         php bin/console doctrine:migrations:migrate --env=test
