@@ -43,4 +43,4 @@ jobs:
         DATABASE_URL: mysql://root:local@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/xxx
       run: |
         export SYMFONY_ENV=test
-        php bin/console doctrine:migrations:migrate --env=test
+        php bin/console doctrine:migrations:migrate --env=test -vvv
